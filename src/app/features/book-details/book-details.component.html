@@ -1,0 +1,26 @@
+<div class="ww-fill" *ngIf="loaderView">
+    <app-loader></app-loader>
+</div>
+
+<div class="content card position-relative">
+    <div class="left-side-part display-flex justify-content-end">
+        <div>
+            <h2 class="title">{{bookDetails.title}}</h2>
+            <div>
+                <img [src]="(BookCoverUrl(bookDetails.covers[0]!)|safeUrl)?? ''" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="display-flex align-items-center">
+        <ul class="list-style">
+            <li> <b>publish year :</b> {{bookDetails.created.value}}</li>
+            <b>Authors : </b>
+            <li *ngFor="let item of authors; let i = index">
+                author {{i+1}} : {{item}}
+            </li>
+            <li> <b>Edition count : </b> {{bookDetails.latest_revision}}</li>
+            <button>Add / Remove wishlist </button>
+        </ul>
+    </div>
+
+</div>

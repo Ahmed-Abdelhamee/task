@@ -1,0 +1,35 @@
+<div class="ww-fill" *ngIf="loaderView">
+    <app-loader></app-loader>
+</div>
+<div class="w-fill">
+    <h3 class="title">viewing only the required things in the pdf</h3>
+    <h3 class="title">task duration was 36 hours</h3>
+</div>
+<div class="w-fill books-containers">
+    <div class="card position-relative"
+        *ngFor="let item of books | paginate:{itemsPerPage:paginationSize ,currentPage:paginationCurrentPage}; let i = index"
+        [ngStyle]="{'display':item.work.cover_id? 'block' : 'none'}">
+        <div routerLink="/book-details/{{Key(item.work.key)}}">
+            <img [src]="(BookCoverUrl(item.work.cover_id)|safeUrl)" alt="">
+        </div>
+        <div>
+            <h4>{{item.logged_date}}</h4>
+            <h4 routerLink="/book-details/{{Key(item.work.key)}}">{{item.work.title}}</h4>
+            <h5>
+                <span *ngFor="let ele of item.work.author_names ; let last=last; let i=index">
+                    <a routerLink="/author-details/{{Key(item.work.author_keys[i])}}">{{ele}}</a>
+                    <b *ngIf="!last"> , </b>
+                </span>
+            </h5>
+        </div>
+        <h5 class="w-fill">
+            <p class="more">
+                <span routerLink="/book-details/{{Key(item.work.key)}}">more </span> |
+                <span> wishlist </span> 
+            </p>
+        </h5>
+    </div>
+</div>
+<div class="w-fill display-flex justify-content-center pagination-container" *ngIf="!loaderView">
+    <pagination-controls (pageChange)="paginationCurrentPage=$event"></pagination-controls>
+</div>

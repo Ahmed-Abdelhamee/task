@@ -1,0 +1,58 @@
+@import "./general.scss";
+
+.content {
+    min-width: 50%;
+    margin: 5px auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.title {
+    color: $primary-color !important;
+    text-transform: capitalize;
+}
+
+li {
+    padding-top: 15px;
+    padding-bottom: 10px;
+    text-transform: capitalize;
+}
+
+.left-side-part img {
+    min-width: 260px;
+    max-width: 300px;
+    max-height: 350px;
+}
+
+.list-style>b {
+    margin-left: -20px;
+}
+
+button {
+    background: black;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    margin-top: 20px;
+}
+
+
+@media screen and (max-width:700px) {
+    .content {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        text-align: center;
+        padding: 10px;
+    }
+
+    img {
+        width: 94%;
+    }
+}

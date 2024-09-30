@@ -1,0 +1,64 @@
+@import "../../shared/styles/general.scss";
+
+.pagination-container {
+    margin-top: 100px
+}
+
+.title{
+    color:$primary-color;
+    text-align: center;
+}
+
+.books-containers {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.card {
+    border: 1px solid lightgray;
+    margin-top: 25px;
+    padding: 5px;
+    padding-bottom: 50px;
+    margin: 15px 8px;
+}
+
+.card img {
+    height: 190px;
+    border-radius: 5px;
+    margin-right: 15px;
+    float: left;
+    margin-top: 25px;
+}
+
+.more {
+    position: absolute;
+    bottom: 5px;
+    right: 15px;
+}
+
+div>h5>span>a {
+    text-decoration: underline;
+}
+
+div>h5>span>a+b {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+@media screen and (max-width:991px) {
+    .books-containers {
+        grid-template-columns: repeat(2, minmax(200px, 1fr));
+    }
+}
+
+@media screen and (max-width:700px) {
+    .books-containers {
+        grid-template-columns: repeat(1, minmax(200px, 1fr));
+    }
+
+    img{
+        float: none !important;
+        margin: 10px auto !important;
+    }
+}

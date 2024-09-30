@@ -1,0 +1,28 @@
+<div class="ww-fill" *ngIf="loaderView">
+    <app-loader></app-loader>
+</div>
+<div class="w-fill">
+    <h3 class="title">some of images not view from the url</h3>
+</div>
+<div class="content card position-relative">
+    <div class="left-side-part display-flex justify-content-end">
+        <div>
+            <h2 class="title">{{author.name}}</h2>
+            <div class="border">
+                <img [src]="(imageUrl(Key(author.key))|safeUrl)" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="display-flex align-items-center">
+        <ul class="list-style">
+            <b>Nmber of works : {{worksNums}}</b> 
+            <li *ngFor="let item of works; let i = index">
+                 {{i+1}} : {{item.title}}
+            </li>
+            <!-- <li *ngFor="let item of authors; let i = index">
+                author {{i+1}} : {{item}}
+            </li> -->
+        </ul>
+    </div>
+
+</div>
